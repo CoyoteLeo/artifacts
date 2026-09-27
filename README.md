@@ -19,3 +19,6 @@ Only static pages work here. An artifact that uses the host's runtime (`window.c
 
 This repo and its Pages site are public: keep personal details (home address, phone numbers) out of `page.html`.
 
+## Pages
+
+- `taichung-trip` — 台中深度五日 · artifact: https://claude.ai/artifact/TYb1adFWGLGuiT2RyzGsdk
