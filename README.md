@@ -21,4 +21,4 @@ This repo and its Pages site are public: keep personal details (home address, ph
 
 ## Pages
 
-- `taichung-trip` — 台中深度五日 · artifact: https://claude.ai/artifact/TYb1adFWGLGuiT2RyzGsdk
+- `taichung-trip` — 台中深度三日 · artifact: https://claude.ai/artifact/TYb1adFWGLGuiT2RyzGsdk
