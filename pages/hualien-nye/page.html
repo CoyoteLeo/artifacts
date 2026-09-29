@@ -1,0 +1,378 @@
+<title>花蓮跨年四日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#edf2f5; --surface:#ffffff; --surface-2:#f4f7f9;
+    --ink:#14212b; --muted:#566573; --faint:#8795a1;
+    --line:#d7e0e7; --line-strong:#c3cfd8;
+    --sea:#1d5a7a; --sea-soft:#e0edf4; --sea-ink:#174a65;
+    --dawn:#c97a22; --dawn-soft:#fbeedb; --dawn-ink:#95560f;
+    --on-accent:#ffffff;
+    --shadow:0 1px 2px rgba(20,33,43,.06),0 8px 24px rgba(20,33,43,.05);
+    --serif:"Noto Serif TC",Georgia,"Songti TC",serif;
+    --sans:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --bg:#0f171d; --surface:#172229; --surface-2:#1d2a32;
+      --ink:#e4ecf1; --muted:#a0b1bd; --faint:#7a8b97;
+      --line:#26343d; --line-strong:#34444e;
+      --sea:#6fb3d6; --sea-soft:#15303e; --sea-ink:#8cc6e4;
+      --dawn:#eaa65a; --dawn-soft:#33271a; --dawn-ink:#f2b774;
+      --on-accent:#0c161c;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0f171d; --surface:#172229; --surface-2:#1d2a32;
+    --ink:#e4ecf1; --muted:#a0b1bd; --faint:#7a8b97;
+    --line:#26343d; --line-strong:#34444e;
+    --sea:#6fb3d6; --sea-soft:#15303e; --sea-ink:#8cc6e4;
+    --dawn:#eaa65a; --dawn-soft:#33271a; --dawn-ink:#f2b774;
+    --on-accent:#0c161c;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.28);
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+  a{color:var(--sea-ink)}
+  .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 16px}
+  .brand{font-family:var(--serif);font-weight:900;font-size:16px;flex:none}
+  .brand span{color:var(--dawn)}
+  .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;font-size:12.5px;font-weight:500;color:var(--muted);background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px;text-decoration:none;white-space:nowrap}
+  .wrap{max-width:1240px;margin:0 auto;padding-block:24px 56px;padding-left:16px;padding-right:16px}
+
+  .hero{display:grid;gap:8px;padding-bottom:8px}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dawn-ink);font-weight:700}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(28px,4.2vw,40px);line-height:1.15;margin:0;text-wrap:balance}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .fact{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:8px;background:var(--sea-soft);color:var(--sea-ink);font-variant-numeric:tabular-nums}
+  .fact.dawn{background:var(--dawn-soft);color:var(--dawn-ink)}
+  .lede{color:var(--muted);max-width:68ch;margin:6px 0 0}
+
+  section.block{margin-top:36px;scroll-margin-top:70px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
+  .sec-h h2{font-family:var(--serif);font-size:22px;margin:0;text-wrap:balance}
+  .sec-h p{margin:0;color:var(--muted);font-size:13.5px}
+
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
+  #decide .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px}
+  .card h3{font-family:var(--serif);font-size:17px;margin:0 0 4px;line-height:1.35}
+  .q{font-size:11.5px;letter-spacing:.14em;font-weight:700;color:var(--faint);margin-bottom:6px}
+  .opts{display:grid;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+  .opts li{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13.5px;color:var(--muted);background:var(--surface-2)}
+  .opts li b{color:var(--ink)}
+  .opts li.rec{border-color:var(--sea);background:var(--sea-soft);color:var(--sea-ink)}
+  .opts li.rec b{color:var(--sea-ink)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:1px;background:var(--sea);color:var(--on-accent)}
+
+  .stay .price{font-family:var(--serif);font-size:24px;font-weight:900;font-variant-numeric:tabular-nums;margin:6px 0 0}
+  .stay .price small{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--muted);margin-left:6px}
+  .kv{display:grid;grid-template-columns:72px 1fr;gap:6px 10px;margin:12px 0 0;font-size:13.5px}
+  .kv dt{color:var(--faint);font-weight:700;font-size:12px;padding-top:2px}
+  .kv dd{margin:0;color:var(--ink)}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px}
+  .pill.ok{background:var(--sea-soft);color:var(--sea-ink)}
+  .pill.warn{background:var(--dawn-soft);color:var(--dawn-ink)}
+  .stay.pick{border-color:var(--sea);box-shadow:0 0 0 1px var(--sea),var(--shadow)}
+
+  .timeline{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .timeline li{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
+  .timeline li:first-child{border-top:0}
+  .when{font-weight:700;font-size:13px;color:var(--dawn-ink);font-variant-numeric:tabular-nums}
+  .what{font-size:13.5px}
+  .what .sub{display:block;color:var(--muted);font-size:12.5px}
+
+  .day{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;
+    display:grid;grid-template-columns:minmax(0,1fr)}
+  .day + .day{margin-top:16px}
+  .day-info{background:var(--surface-2);padding:16px;border-bottom:1px solid var(--line)}
+  .day-info .d{font-size:12.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .day-info h3{font-family:var(--serif);font-size:19px;margin:2px 0 8px;line-height:1.3;text-wrap:balance}
+  .day-info p{margin:0;font-size:13px;color:var(--muted)}
+  .stops{padding:4px 16px}
+  .stop{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .stop:first-child{border-top:0}
+  .slot{font-size:12px;font-weight:700;color:var(--dawn-ink);padding-top:2px;font-variant-numeric:tabular-nums}
+  .stop p{margin:0}
+  .lead{font-weight:700;font-size:14.5px}
+  .sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .notes{padding:0 16px 14px;display:grid;gap:8px}
+  .callout{border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.55;display:flex;gap:9px}
+  .callout .ic{flex:none;font-weight:900;width:19px;height:19px;border-radius:999px;display:grid;place-items:center;font-size:12px;margin-top:1px;color:var(--on-accent)}
+  .callout.warn{background:var(--dawn-soft);color:var(--dawn-ink)}
+  .callout.warn .ic{background:var(--dawn)}
+  .callout.tip{background:var(--sea-soft);color:var(--sea-ink)}
+  .callout.tip .ic{background:var(--sea)}
+  @media (min-width:900px){
+    .day{grid-template-columns:300px minmax(0,1fr)}
+    .day-info{border-bottom:0;border-right:1px solid var(--line);grid-row:1 / span 2}
+    .stops{padding-top:8px}
+  }
+  @media (min-width:1180px){
+    .day{grid-template-columns:300px minmax(0,1fr) 300px}
+    .day-info{grid-row:auto}
+    .notes{padding:16px;border-left:1px solid var(--line);align-content:start}
+  }
+  .checklist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .checklist li{display:flex;gap:10px;font-size:13.5px;align-items:flex-start}
+  .checklist .box{flex:none;width:16px;height:16px;border:1.5px solid var(--line-strong);border-radius:4px;margin-top:3px}
+  .src{font-size:12px;color:var(--faint);margin:0 0 4px}
+  .src a{color:var(--faint)}
+  .stamp{font-size:11.5px;color:var(--faint);margin-top:24px}
+  :focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+  @media (max-width:420px){ .timeline li{grid-template-columns:96px 1fr} .kv{grid-template-columns:64px 1fr} }
+</style>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">花蓮<span>跨年</span></div>
+    <nav class="chips" aria-label="跳到段落">
+      <a class="chip" href="#decide">要決定的事</a>
+      <a class="chip" href="#stay">住宿</a>
+      <a class="chip" href="#go">交通與搶票</a>
+      <a class="chip" href="#plan">四天行程</a>
+      <a class="chip" href="#todo">待確認</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Hualien · New Year 2027</div>
+    <h1>在太平洋邊跨年，隔天看元旦日出</h1>
+    <div class="facts">
+      <span class="fact">2026/12/30（三）– 2027/1/2（六）・3 晚</span>
+      <span class="fact">兩人・台北出發</span>
+      <span class="fact dawn">海景房・每晚 2500 內・可免費取消</span>
+    </div>
+    <p class="lede">住宿價格是 2026/9/29 在 Booking.com 和 Agoda 實際搜尋的結果，花蓮是這三個條件都符合、選擇也最多的地區。下面先列出要一起決定的事，再看細節。</p>
+  </section>
+
+  <section class="block" id="decide">
+    <div class="sec-h"><h2>要一起決定的事</h2><p>藍框是目前的建議</p></div>
+    <div class="grid">
+      <div class="card">
+        <div class="q">決定 1</div>
+        <h3>住哪一間</h3>
+        <ul class="opts">
+          <li class="rec"><b>亮君海景民宿</b><span class="tag">建議</span><br>在花蓮市區，走路到東大門夜市和跨年會場，不用騎車</li>
+          <li><b>洄瀾國際文教會館</b>：含早、最晚 12/27 前取消，但在壽豐鹽寮</li>
+          <li><b>暗礁碼頭海景民宿</b>：評分高，但在鹽寮、12/16 就要決定</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="q">決定 2</div>
+        <h3>怎麼去花蓮</h3>
+        <ul class="opts">
+          <li class="rec"><b>台鐵</b><span class="tag">建議</span><br>約 2 小時、全票 583 元，但跨年要搶票</li>
+          <li><b>國道客運（蘇花改）</b>：約 3.5 小時、300 多元，搶不到火車的備案</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="q">決定 3</div>
+        <h3>在花蓮要不要騎機車</h3>
+        <ul class="opts">
+          <li><b>租機車</b>：火車站前就有，一天約 250–300 元，要有駕照。住鹽寮就一定要騎</li>
+          <li class="rec"><b>台灣好行＋計程車</b><span class="tag">住市區時</span><br>太魯閣、七星潭都有好行 310；元旦清晨叫車</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="q">決定 4</div>
+        <h3>跨年夜和元旦日出都要嗎</h3>
+        <ul class="opts">
+          <li class="rec"><b>兩個都去</b><span class="tag">建議</span><br>跨年散場約 00:30，日出 06:35，中間睡 4 小時，1/1 白天排輕鬆</li>
+          <li><b>只選一個</b>：看煙火就晚起；看日出就 12/31 早睡</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="stay">
+    <div class="sec-h"><h2>住宿三選一</h2><p>都是海景雙人房、可免費取消</p></div>
+    <div class="grid">
+      <article class="card stay pick">
+        <div class="q">AGODA</div>
+        <h3>花蓮亮君海景民宿</h3>
+        <div class="price">NT$ 2,406<small>每晚・未稅</small></div>
+        <dl class="kv">
+          <dt>房型</dt><dd>海景豪華雙人房，有陽台，含早餐</dd>
+          <dt>位置</dt><dd>花蓮市北濱街，走路到東大門夜市約 600 公尺</dd>
+          <dt>評分</dt><dd>9.0（874 篇評鑑）</dd>
+          <dt>取消</dt><dd><span class="pill ok">2026/12/23 前免費取消</span>，到店付款</dd>
+          <dt>注意</dt><dd>加稅後可能略超過 2500。最便宜的 2,089 是「客房(大床)－有陽台」，房名沒寫海景，不要選錯。剩最後 1 間</dd>
+        </dl>
+      </article>
+      <article class="card stay">
+        <div class="q">BOOKING.COM</div>
+        <h3>洄瀾國際文教會館</h3>
+        <div class="price">NT$ 6,588<small>3 晚總價・含稅</small></div>
+        <dl class="kv">
+          <dt>房型</dt><dd>海景豪華雙人房，有陽台，含早餐</dd>
+          <dt>位置</dt><dd>壽豐鄉鹽寮村，不在市區</dd>
+          <dt>評分</dt><dd>8.5（387 則評語）</dd>
+          <dt>取消</dt><dd><span class="pill ok">2026/12/27 前（不含當天）免費取消</span>，入住時付款、免填信用卡</dd>
+          <dt>注意</dt><dd>一晚約 2,196。價格套用了 Genius 九折，用別的帳號看可能比較貴</dd>
+        </dl>
+      </article>
+      <article class="card stay">
+        <div class="q">BOOKING.COM</div>
+        <h3>暗礁碼頭海景民宿</h3>
+        <div class="price">NT$ 6,660<small>3 晚總價・含稅</small></div>
+        <dl class="kv">
+          <dt>房型</dt><dd>海景豪華雙人房，有陽台，不含早餐</dd>
+          <dt>位置</dt><dd>壽豐鄉鹽寮村，不在市區</dd>
+          <dt>評分</dt><dd>9.0（178 則評語），地點 9.4</dd>
+          <dt>取消</dt><dd><span class="pill warn">2026/12/16 前（不含當天）免費取消</span>，入住前付款給民宿</dd>
+          <dt>注意</dt><dd>一晚約 2,220。一樣套了 Genius 九折，只剩 1 間</dd>
+        </dl>
+      </article>
+    </div>
+    <div class="callout tip" style="margin-top:14px"><div class="ic">i</div><div>三間都可以免費取消，建議先訂一間卡位，之後想換再取消。價格和剩餘間數隨時在變，以訂房當下為準。</div></div>
+  </section>
+
+  <section class="block" id="go">
+    <div class="sec-h"><h2>交通與搶票時程</h2><p>跨年東部火車票很難買，時間點比路線重要</p></div>
+    <div class="grid">
+      <div class="card">
+        <h3>台北 ↔ 花蓮</h3>
+        <dl class="kv">
+          <dt>台鐵</dt><dd>太魯閣號、普悠瑪號、EMU3000 約 2 小時，全票 583 元。普悠瑪沒有站票</dd>
+          <dt>客運</dt><dd>首都客運（板橋—花蓮）、統聯或台北客運（南港—花蓮）走蘇花改，約 3.5 小時、約 320–352 元，全車對號座</dd>
+          <dt>當地</dt><dd>台灣好行 310（七星潭、將軍府、太魯閣）；租機車一天約 250–300 元；計程車建議用 App 或電話預約</dd>
+        </dl>
+        <p class="src" style="margin-top:12px">客運票價來自 2019–2020 年通車報導，訂票前以官網為準。</p>
+      </div>
+      <div class="card">
+        <h3>關鍵日期</h3>
+        <ol class="timeline">
+          <li><span class="when">11 月起</span><span class="what">每週看台鐵「疏運計畫」公告<span class="sub">今年跨年的公告還沒發布</span></span></li>
+          <li><span class="when">約 11 月底–12 月初</span><span class="what">台鐵連假車票開賣（預估）<span class="sub">去年是連假首日往前 28 天，2025/12/1 00:00 一次開賣，以今年公告為準</span></span></li>
+          <li><span class="when">12/16</span><span class="what">暗礁碼頭免費取消截止（不含當天）</span></li>
+          <li><span class="when">約 12 月中</span><span class="what">跨年加開列車另外開賣（預估）<span class="sub">去年是 12/12 開賣</span></span></li>
+          <li><span class="when">12/23</span><span class="what">亮君免費取消截止</span></li>
+          <li><span class="when">12/27</span><span class="what">洄瀾免費取消截止（不含當天）</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="plan">
+    <div class="sec-h"><h2>四天行程</h2><p>以住亮君（市區）、不騎車為前提</p></div>
+
+    <article class="day">
+      <div class="day-info">
+        <div class="d">12/30 週三</div>
+        <h3>抵達、文創園區、東大門夜市</h3>
+        <p>火車約 2 小時，上午出發中午就到</p>
+      </div>
+      <div class="stops">
+        <div class="stop"><div class="slot">上午</div><div><p class="lead">台北搭火車到花蓮</p><p class="sub">班次等開賣時再選</p></div></div>
+        <div class="stop"><div class="slot">午後</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=花蓮文化創意產業園區" target="_blank" rel="noopener">花蓮文創園區</a>・<a href="https://www.google.com/maps/search/?api=1&query=松園別館" target="_blank" rel="noopener">松園別館</a></p><p class="sub">文創園區週一休，週三有開；松園別館 09:00–18:00，門票 60 元可折抵消費</p></div></div>
+        <div class="stop"><div class="slot">傍晚</div><div><p class="lead">民宿入住，北濱公園散步看海</p><p class="sub">入住時間要跟民宿確認</p></div></div>
+        <div class="stop"><div class="slot">18:00</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=東大門夜市" target="_blank" rel="noopener">東大門夜市</a></p><p class="sub">每天 18:00–24:00，走路就到</p></div></div>
+      </div>
+      <div class="notes">
+        <div class="callout warn"><div class="ic">!</div><div>廟口紅茶、周家蒸餃小籠包<b>週三公休</b>，這天不要排，改到 1/1。</div></div>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="day-info">
+        <div class="d">12/31 週四</div>
+        <h3>太魯閣半日＋跨年夜</h3>
+        <p>白天輕鬆走，晚上留體力跨年</p>
+      </div>
+      <div class="stops">
+        <div class="stop"><div class="slot">09:30</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=液香扁食" target="_blank" rel="noopener">液香扁食</a>當早午餐</p><p class="sub">09:30–13:30，只開半天，週日休</p></div></div>
+        <div class="stop"><div class="slot">上午</div><div><p class="lead">台灣好行 310 到太魯閣</p><p class="sub">單程全票約 154 元，冬季班次出發前查</p></div></div>
+        <div class="stop"><div class="slot">中午</div><div><p class="lead">得卡倫步道・綠水遊憩區</p><p class="sub">得卡倫是目前開放的完整步道；綠水 2026/2/3 起局部開放，只開白天</p></div></div>
+        <div class="stop"><div class="slot">傍晚</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=將軍府1936" target="_blank" rel="noopener">將軍府 1936</a></p><p class="sub">平日 10:00–22:30，好行 310 會經過</p></div></div>
+        <div class="stop"><div class="slot">20:00</div><div><p class="lead">東大門廣場跨年</p><p class="sub">去年 20:00 開始，00:00 放煙火 5 分鐘，00:30 散場。就在民宿旁邊</p></div></div>
+      </div>
+      <div class="notes">
+        <div class="callout warn"><div class="ic">!</div><div><b>太魯閣大多數步道還封閉</b>：砂卡礑、燕子口、九曲洞、白楊、長春祠、錐麓古道都沒開，重建規劃到 2031 年。出發前查官網。</div></div>
+        <div class="callout warn"><div class="ic">!</div><div><b>今年跨年晚會還沒公告</b>，地點時間是去年的。炸彈蔥油餅（黃車）週四公休，這天想吃就去藍車。</div></div>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="day-info">
+        <div class="d">2027/1/1 週五</div>
+        <h3>元旦日出，白天放慢</h3>
+        <p>跨年完睡 4 小時，下午補眠</p>
+      </div>
+      <div class="stops">
+        <div class="stop"><div class="slot">05:50</div><div><p class="lead">叫計程車到<a href="https://www.google.com/maps/search/?api=1&query=七星潭" target="_blank" rel="noopener">七星潭</a></p><p class="sub">首班公車趕不上，前一晚先預約</p></div></div>
+        <div class="stop"><div class="slot">06:35</div><div><p class="lead">元旦日出</p><p class="sub">石雕公園觀日樓可以上樓看；不想跑遠就在北濱公園看</p></div></div>
+        <div class="stop"><div class="slot">上午</div><div><p class="lead">回民宿吃早餐、補眠</p></div></div>
+        <div class="stop"><div class="slot">午後</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=廟口紅茶%20花蓮" target="_blank" rel="noopener">廟口紅茶</a>・<a href="https://www.google.com/maps/search/?api=1&query=周家蒸餃小籠包" target="_blank" rel="noopener">周家蒸餃小籠包</a></p><p class="sub">廟口 06:00–23:00；周家 10:00–22:00</p></div></div>
+        <div class="stop"><div class="slot">15:00</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=炸彈蔥油餅%20復興街" target="_blank" rel="noopener">炸彈蔥油餅（黃車）</a></p><p class="sub">12:30–18:30，排隊要有心理準備</p></div></div>
+        <div class="stop"><div class="slot">傍晚</div><div><p class="lead">南濱公園散步，早點休息</p></div></div>
+      </div>
+      <div class="notes">
+        <div class="callout tip"><div class="ic">i</div><div>日出時間 06:35 是用去年同一天推的，年差不到 1 分鐘；精確時間看氣象署的天文資料。</div></div>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="day-info">
+        <div class="d">1/2 週六</div>
+        <h3>最後一個早上，午後回台北</h3>
+        <p>連假最後幾天回程車最難買</p>
+      </div>
+      <div class="stops">
+        <div class="stop"><div class="slot">上午</div><div><p class="lead"><a href="https://www.google.com/maps/search/?api=1&query=公正包子店" target="_blank" rel="noopener">公正包子</a></p><p class="sub">09:20–21:00，可以買在火車上吃</p></div></div>
+        <div class="stop"><div class="slot">上午</div><div><p class="lead">退房，北濱公園最後看一次海</p></div></div>
+        <div class="stop"><div class="slot">午後</div><div><p class="lead">搭火車回台北</p><p class="sub">搶不到火車就搭客運，約 3.5 小時</p></div></div>
+      </div>
+      <div class="notes">
+        <div class="callout tip"><div class="ic">i</div><div>時間多的話，1/1 或 1/2 可以換成鯉魚潭半日，但公車班次少，要先抓好回程。</div></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" id="todo">
+    <div class="sec-h"><h2>還沒確認的事</h2><p>都有寫到期日或查詢方法</p></div>
+    <div class="grid">
+      <div class="card">
+        <h3>出發前要再查</h3>
+        <ul class="checklist">
+          <li><span class="box"></span><span>台鐵跨年疏運公告和開賣日（11 月起）</span></li>
+          <li><span class="box"></span><span>花蓮縣觀光處的跨年晚會公告（11–12 月）</span></li>
+          <li><span class="box"></span><span>太魯閣國家公園的步道開放狀態（出發前一週）</span></li>
+          <li><span class="box"></span><span>台灣好行 310 的冬季時刻表</span></li>
+          <li><span class="box"></span><span>亮君含稅後的總價（下訂頁面會顯示）</span></li>
+          <li><span class="box"></span><span>小吃店的營業時間：店家常臨時調整，前一天用 Google Maps 再看</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>天氣（12 月底氣候平均）</h3>
+        <p style="margin:0;font-size:13.5px">白天約 22–24°C，三成多是多雲或陰天。東北季風會帶來陣風和間歇雨，帶防風防水外套；雨天可以改去文創園區、將軍府這類有室內空間的地方。雨天比例查不到官方統計。</p>
+      </div>
+      <div class="card">
+        <h3>資料來源</h3>
+        <p class="src">住宿：Booking.com、Agoda，2026/9/29 以 2 大人、12/30–1/2 搜尋</p>
+        <p class="src">台鐵：<a href="https://www.railway.gov.tw/tra-tip-web/tip/tip00C/tipC21/view?proCode=8ae4cac3756b7b41017572e5974c178b&subCode=8ae4cac28d0e8e3d018d131085d908fe&lang=zh_TW" target="_blank" rel="noopener">各假期開放訂票期程</a>（目前只有 2026 年版）、<a href="https://news.ltn.com.tw/news/life/breakingnews/5273832" target="_blank" rel="noopener">去年跨年加開列車</a></p>
+        <p class="src">客運：<a href="https://www.capital-bus.com.tw/" target="_blank" rel="noopener">首都客運</a>、<a href="https://www.ubus.com.tw/" target="_blank" rel="noopener">統聯客運</a></p>
+        <p class="src">跨年：<a href="https://td.hl.gov.tw/Detail_sp/df0a6ab71e6342e8b54e2b11196da1c2" target="_blank" rel="noopener">花蓮縣觀光處（去年）</a></p>
+        <p class="src">太魯閣：<a href="https://www.taroko.gov.tw/TAROKO_TrailCondition.aspx?n=5401&csn=54" target="_blank" rel="noopener">公路步道開放狀況</a>；台灣好行：<a href="https://www.taiwantrip.com.tw/Frontend/Route/Select_p?RouteID=R0071" target="_blank" rel="noopener">太魯閣線</a></p>
+        <p class="src">日出：<a href="https://sunrise.maplogs.com/zh-TW/chihsingtan_coast_park_xincheng_township_hualien_county_taiwan.114201.html" target="_blank" rel="noopener">七星潭日出時間</a>、<a href="https://www.cwa.gov.tw/V8/C/D/astronomy_data.html" target="_blank" rel="noopener">氣象署天文資料</a></p>
+        <p class="src">天氣：<a href="https://tw.weatherspark.com/m/137164/12/" target="_blank" rel="noopener">Weather Spark 花蓮 12 月</a></p>
+      </div>
+    </div>
+    <p class="stamp">資料查詢日 2026/9/29。價格、剩餘間數和班次都會變，以訂票訂房當下為準。</p>
+  </section>
+
+</div>
