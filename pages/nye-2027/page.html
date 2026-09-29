@@ -1,4 +1,4 @@
-<title>花蓮跨年四日</title>
+<title>跨年海景四日</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&display=swap">
@@ -60,8 +60,8 @@
   .lede{color:var(--muted);max-width:68ch;margin:6px 0 0}
 
   section.block{margin-top:36px;scroll-margin-top:70px}
-  .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
-  .sec-h h2{font-family:var(--serif);font-size:22px;margin:0;text-wrap:balance}
+  .sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 14px}
+  .sec-h h2{font-family:var(--serif);font-size:22px;margin:0;flex:none}
   .sec-h p{margin:0;color:var(--muted);font-size:13.5px}
 
   .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
@@ -124,6 +124,26 @@
     .day-info{grid-row:auto}
     .notes{padding:16px;border-left:1px solid var(--line);align-content:start}
   }
+  .region{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;
+    display:grid;grid-template-columns:minmax(0,1fr)}
+  .region + .region{margin-top:16px}
+  .region.pick{border-color:var(--sea);box-shadow:0 0 0 1px var(--sea),var(--shadow)}
+  .region.out{opacity:.92}
+  .r-info{background:var(--surface-2);padding:16px;border-bottom:1px solid var(--line)}
+  .r-info h3{font-family:var(--serif);font-size:20px;margin:0 0 6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .r-info .kv{margin-top:8px}
+  .r-stays{padding:16px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));align-content:start}
+  .st{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface);font-size:13px;color:var(--muted)}
+  .st.best{border-color:var(--sea)}
+  .st .n{font-weight:700;color:var(--ink);font-size:14px}
+  .st .p{font-family:var(--serif);font-weight:900;color:var(--ink);font-size:17px;font-variant-numeric:tabular-nums;margin:2px 0}
+  .st .p small{font-family:var(--sans);font-weight:500;font-size:12px;color:var(--muted);margin-left:4px}
+  .st .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .pill.no{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  @media (min-width:980px){
+    .region{grid-template-columns:380px minmax(0,1fr)}
+    .r-info{border-bottom:0;border-right:1px solid var(--line)}
+  }
   .checklist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
   .checklist li{display:flex;gap:10px;font-size:13.5px;align-items:flex-start}
   .checklist .box{flex:none;width:16px;height:16px;border:1.5px solid var(--line-strong);border-radius:4px;margin-top:3px}
@@ -136,12 +156,12 @@
 
 <header class="topbar">
   <div class="topbar-in">
-    <div class="brand">花蓮<span>跨年</span></div>
+    <div class="brand">跨年<span>海景</span></div>
     <nav class="chips" aria-label="跳到段落">
       <a class="chip" href="#decide">要決定的事</a>
-      <a class="chip" href="#stay">住宿</a>
-      <a class="chip" href="#go">交通與搶票</a>
-      <a class="chip" href="#plan">四天行程</a>
+      <a class="chip" href="#regions">五個地區比較</a>
+      <a class="chip" href="#go">搶票與取消期限</a>
+      <a class="chip" href="#plan">花蓮四天行程</a>
       <a class="chip" href="#todo">待確認</a>
     </nav>
   </div>
@@ -150,14 +170,14 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="eyebrow">Hualien · New Year 2027</div>
-    <h1>在太平洋邊跨年，隔天看元旦日出</h1>
+    <div class="eyebrow">New Year 2027 · Sea View</div>
+    <h1>在海邊跨年，隔天看元旦日出</h1>
     <div class="facts">
       <span class="fact">2026/12/30（三）– 2027/1/2（六）・3 晚</span>
       <span class="fact">兩人・台北出發</span>
       <span class="fact dawn">海景房・每晚 2500 內・可免費取消</span>
     </div>
-    <p class="lede">住宿價格是 2026/9/29 在 Booking.com 和 Agoda 實際搜尋的結果，花蓮是這三個條件都符合、選擇也最多的地區。下面先列出要一起決定的事，再看細節。</p>
+    <p class="lede">2026/9/29–30 在 Booking.com 和 Agoda 用這三個條件實際搜尋了花蓮、九份／基隆、墾丁、台東、宜蘭五個地區，每間都點進去確認過取消規定。下面先列出要一起決定的事，再看每個地區的細節。</p>
   </section>
 
   <section class="block" id="decide">
@@ -165,111 +185,131 @@
     <div class="grid">
       <div class="card">
         <div class="q">決定 1</div>
-        <h3>住哪一間</h3>
+        <h3>去哪個地區</h3>
         <ul class="opts">
-          <li class="rec"><b>亮君海景民宿</b><span class="tag">建議</span><br>在花蓮市區，走路到東大門夜市和跨年會場，不用騎車</li>
-          <li><b>洄瀾國際文教會館</b>：含早、最晚 12/27 前取消，但在壽豐鹽寮</li>
-          <li><b>暗礁碼頭海景民宿</b>：評分高，但在鹽寮、12/16 就要決定</li>
+          <li class="rec"><b>花蓮</b><span class="tag">建議</span><br>火車 2 小時，市區住宿走路到跨年會場，選擇最多</li>
+          <li><b>九份／基隆</b>：最近、最便宜，但冬天常下雨起霧</li>
+          <li><b>墾丁</b>：最暖、評分最高，但單程 4 小時以上、風很大</li>
+          <li><b>台東、宜蘭</b>：幾乎沒有符合條件的住宿</li>
         </ul>
       </div>
       <div class="card">
         <div class="q">決定 2</div>
-        <h3>怎麼去花蓮</h3>
+        <h3>住哪一間</h3>
         <ul class="opts">
-          <li class="rec"><b>台鐵</b><span class="tag">建議</span><br>約 2 小時、全票 583 元，但跨年要搶票</li>
-          <li><b>國道客運（蘇花改）</b>：約 3.5 小時、300 多元，搶不到火車的備案</li>
+          <li class="rec"><b>花蓮：亮君海景民宿</b><span class="tag">建議</span><br>市區、不用騎車，12/23 前可取消</li>
+          <li><b>九份：未央居景觀民宿</b>：3 晚 5,508 最便宜，12/23 前可取消</li>
+          <li>其他候選見下方「五個地區比較」</li>
         </ul>
       </div>
       <div class="card">
         <div class="q">決定 3</div>
-        <h3>在花蓮要不要騎機車</h3>
+        <h3>在當地要不要騎機車</h3>
         <ul class="opts">
-          <li><b>租機車</b>：火車站前就有，一天約 250–300 元，要有駕照。住鹽寮就一定要騎</li>
-          <li class="rec"><b>台灣好行＋計程車</b><span class="tag">住市區時</span><br>太魯閣、七星潭都有好行 310；元旦清晨叫車</li>
+          <li><b>租機車</b>：要有駕照。住花蓮鹽寮、墾丁、台東、宜蘭頭城基本上都要騎</li>
+          <li class="rec"><b>公車＋計程車</b><span class="tag">住花蓮市區或九份時</span><br>花蓮有台灣好行 310，九份有 788 公車</li>
         </ul>
       </div>
       <div class="card">
         <div class="q">決定 4</div>
         <h3>跨年夜和元旦日出都要嗎</h3>
         <ul class="opts">
-          <li class="rec"><b>兩個都去</b><span class="tag">建議</span><br>跨年散場約 00:30，日出 06:35，中間睡 4 小時，1/1 白天排輕鬆</li>
+          <li class="rec"><b>兩個都去</b><span class="tag">建議</span><br>散場約 00:30、日出約 06:35，中間睡 4 小時，1/1 白天排輕鬆</li>
           <li><b>只選一個</b>：看煙火就晚起；看日出就 12/31 早睡</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="block" id="stay">
-    <div class="sec-h"><h2>住宿三選一</h2><p>都是海景雙人房、可免費取消</p></div>
-    <div class="grid">
-      <article class="card stay pick">
-        <div class="q">AGODA</div>
-        <h3>花蓮亮君海景民宿</h3>
-        <div class="price">NT$ 2,406<small>每晚・未稅</small></div>
-        <dl class="kv">
-          <dt>房型</dt><dd>海景豪華雙人房，有陽台，含早餐</dd>
-          <dt>位置</dt><dd>花蓮市北濱街，走路到東大門夜市約 600 公尺</dd>
-          <dt>評分</dt><dd>9.0（874 篇評鑑）</dd>
-          <dt>取消</dt><dd><span class="pill ok">2026/12/23 前免費取消</span>，到店付款</dd>
-          <dt>注意</dt><dd>加稅後可能略超過 2500。最便宜的 2,089 是「客房(大床)－有陽台」，房名沒寫海景，不要選錯。剩最後 1 間</dd>
-        </dl>
-      </article>
-      <article class="card stay">
-        <div class="q">BOOKING.COM</div>
-        <h3>洄瀾國際文教會館</h3>
-        <div class="price">NT$ 6,588<small>3 晚總價・含稅</small></div>
-        <dl class="kv">
-          <dt>房型</dt><dd>海景豪華雙人房，有陽台，含早餐</dd>
-          <dt>位置</dt><dd>壽豐鄉鹽寮村，不在市區</dd>
-          <dt>評分</dt><dd>8.5（387 則評語）</dd>
-          <dt>取消</dt><dd><span class="pill ok">2026/12/27 前（不含當天）免費取消</span>，入住時付款、免填信用卡</dd>
-          <dt>注意</dt><dd>一晚約 2,196。價格套用了 Genius 九折，用別的帳號看可能比較貴</dd>
-        </dl>
-      </article>
-      <article class="card stay">
-        <div class="q">BOOKING.COM</div>
-        <h3>暗礁碼頭海景民宿</h3>
-        <div class="price">NT$ 6,660<small>3 晚總價・含稅</small></div>
-        <dl class="kv">
-          <dt>房型</dt><dd>海景豪華雙人房，有陽台，不含早餐</dd>
-          <dt>位置</dt><dd>壽豐鄉鹽寮村，不在市區</dd>
-          <dt>評分</dt><dd>9.0（178 則評語），地點 9.4</dd>
-          <dt>取消</dt><dd><span class="pill warn">2026/12/16 前（不含當天）免費取消</span>，入住前付款給民宿</dd>
-          <dt>注意</dt><dd>一晚約 2,220。一樣套了 Genius 九折，只剩 1 間</dd>
-        </dl>
-      </article>
-    </div>
-    <div class="callout tip" style="margin-top:14px"><div class="ic">i</div><div>三間都可以免費取消，建議先訂一間卡位，之後想換再取消。價格和剩餘間數隨時在變，以訂房當下為準。</div></div>
+  <section class="block" id="regions">
+    <div class="sec-h"><h2>五個地區比較</h2><p>每間都點進去確認過取消規定；Booking 價格含稅，套用了 Genius 九折，別的帳號看可能比較貴</p></div>
+    <article class="region pick">
+      <div class="r-info">
+        <h3>花蓮 <span class="pill ok">建議</span></h3>
+        <dl class="kv"><dt>從台北</dt><dd>台鐵太魯閣號、普悠瑪號約 2 小時，全票 583 元，跨年要搶票。備案：蘇花改客運約 3.5 小時、320–352 元</dd><dt>當地</dt><dd>住市區可以靠台灣好行 310 和計程車；住鹽寮要租機車</dd><dt>跨年</dt><dd>東大門廣場，去年 00:00 放煙火 5 分鐘。今年未公告</dd><dt>日出</dt><dd>七星潭，約 06:35</dd><dt>冬天</dt><dd>東北季風帶來陣風和間歇雨</dd></dl>
+      </div>
+      <div class="r-stays">
+        <div class="st best"><div class="n">亮君海景民宿・市區</div><div class="p">NT$ 2,406<small>每晚・未稅</small></div><div>9.0（874 篇）</div><div class="row"><span class="pill ok">12/23 前免費取消</span></div><div style="margin-top:6px">Agoda。海景豪華雙人房含早，到店付款。加稅可能略超 2500；2,089 的房型不是海景，不要選錯</div></div>
+        <div class="st best"><div class="n">洄瀾國際文教會館・壽豐鹽寮</div><div class="p">NT$ 6,588<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill ok">12/27 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早，入住時付款、免填信用卡。一晚約 2,196</div></div>
+        <div class="st best"><div class="n">暗礁碼頭海景民宿・壽豐鹽寮</div><div class="p">NT$ 6,660<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。不含早，入住前付款，只剩 1 間。一晚約 2,220</div></div>
+      </div>
+    </article>
+    <article class="region">
+      <div class="r-info">
+        <h3>九份／基隆 <span class="pill ok">最近・最便宜</span></h3>
+        <dl class="kv"><dt>從台北</dt><dd>台鐵到瑞芳約 36 分、73–114 元，瑞芳轉 788 公車上九份（15–20 分一班）。到基隆約 38 分、97 元。班次多，不太需要搶票</dd><dt>當地</dt><dd>九份靠 788 公車和計程車；基隆有 101–103 公車、T99 濱海奇基線，但最近減班，要查即時動態</dd><dt>跨年</dt><dd>九份沒有官方活動；基隆虎仔山有煙火（去年 660 秒），今年未公告</dd><dt>日出</dt><dd>茶壺山（要爬山，海拔 599m）</dd><dt>冬天</dt><dd>東北季風最直接，常下雨起霧，看得到海景比較看運氣</dd></dl>
+      </div>
+      <div class="r-stays">
+        <div class="st best"><div class="n">未央居景觀民宿・九份輕便路</div><div class="p">NT$ 5,508<small>3 晚・含稅</small></div><div>8.3（346 則）</div><div class="row"><span class="pill ok">12/23 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房，早餐加購 85 元，入住時付款，還有 3 間。一晚約 1,836</div></div>
+        <div class="st best"><div class="n">允誠民宿・九份烏勢巷</div><div class="p">NT$ 6,354<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房含早，入住前付款，只剩 1 間。一晚約 2,118</div></div>
+        <div class="st best"><div class="n">九份山海觀民宿</div><div class="p">NT$ 7,560<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill no">超出預算</span></div><div style="margin-top:6px">Booking。一晚約 2,520，略超</div></div>
+      </div>
+    </article>
+    <article class="region">
+      <div class="r-info">
+        <h3>墾丁 <span class="pill warn">最遠</span></h3>
+        <dl class="kv"><dt>從台北</dt><dd>高鐵到左營，轉墾丁快線約 140 分、401 元。全程粗估 4–4.5 小時，高鐵車程和票價要另外查</dd><dt>當地</dt><dd>恆春轉運站旁可以租機車，基本上要騎</dd><dt>跨年</dt><dd>墾丁本地沒有查到官方活動；屏東的晚會在屏東市和大鵬灣，離墾丁有段車程，今年日期未確認</dd><dt>日出</dt><dd>龍磐公園、鵝鑾鼻</dd><dt>冬天</dt><dd>最暖，但恆春冬天落山風很強</dd></dl>
+      </div>
+      <div class="r-stays">
+        <div class="st best"><div class="n">張船長民宿・鵝鑾</div><div class="p">NT$ 6,840<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景豪華雙人房有陽台，入住前付款，只剩 1 間</div></div>
+        <div class="st best"><div class="n">砂點民宿・鵝鑾</div><div class="p">NT$ 7,240<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住時付款、無需訂金，還有 2 間</div></div>
+        <div class="st best"><div class="n">永旺旅店・南灣</div><div class="p">NT$ 7,470<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill ok">12/23 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住前付款，只剩 1 間。一晚約 2,490</div></div>
+        <div class="st best"><div class="n">覓夏旅店・南灣</div><div class="p">NT$ 7,600<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">11/30 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早方案才能取消，一晚約 2,533，略超預算</div></div>
+      </div>
+    </article>
+    <article class="region out">
+      <div class="r-info">
+        <h3>台東 <span class="pill no">幾乎沒有符合的</span></h3>
+        <dl class="kv"><dt>從台北</dt><dd>普悠瑪、太魯閣號約 3 小時 50 分–4 小時 26 分，全票 936 元，全車對號座，要搶票</dd><dt>當地</dt><dd>東河、成功一帶公車班次少，要租機車</dd><dt>跨年</dt><dd>台東市國際地標，去年張惠妹壓軸。今年未公告</dd><dt>日出</dt><dd>三仙台（台灣好行 8101A 可以到）</dd><dt>冬天</dt><dd>東北季風背風面，比北部穩定</dd></dl>
+      </div>
+      <div class="r-stays">
+        <div class="st best"><div class="n">三仙台小月光民宿・成功</div><div class="p">NT$ 4,900<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill no">不可退款</span></div><div style="margin-top:6px">Booking。含早、就在元旦日出點，但不能取消</div></div>
+        <div class="st best"><div class="n">海岸線獨立海景房寵物友善民宿・東河</div><div class="p">NT$ 2,418<small>每晚・未稅</small></div><div></div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。只有 4 篇評鑑，參考價值低；取消截止日沒有點進去確認</div></div>
+      </div>
+    </article>
+    <article class="region out">
+      <div class="r-info">
+        <h3>宜蘭頭城 <span class="pill no">超出預算</span></h3>
+        <dl class="kv"><dt>從台北</dt><dd>台鐵最快約 1 小時 42 分、169 元起（外澳是無人招呼站）；葛瑪蘭客運 105–180 元，可以線上訂位</dd><dt>當地</dt><dd>頭城站前有 24 小時機車租借，基本上要騎</dd><dt>跨年</dt><dd>宜蘭市運動公園有晚會（去年的資料），離頭城有車程</dd><dt>日出</dt><dd>外澳沙灘、烏石港北堤，可以跟龜山島同框</dd><dt>冬天</dt><dd>東北季風迎風面，常下雨</dd></dl>
+      </div>
+      <div class="r-stays">
+        <div class="st best"><div class="n">望島間－無邊際泳池海景溫泉宅</div><div class="p">NT$ 4,113<small>每晚・未稅</small></div><div></div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。符合條件裡最便宜的，還是超過預算很多</div></div>
+        <div class="st"><div class="n">Booking</div><div class="p">0 間<small></small></div><div></div><div class="row"><span class="pill no">沒有符合的</span></div><div style="margin-top:6px">海景房、每晚 2500 內的條件下 Booking 一間都沒有</div></div>
+      </div>
+    </article>
+    <div class="callout tip" style="margin-top:14px"><div class="ic">i</div><div><b>已排除</b>：澎湖（冬天風大、很多活動停業）；小琉球（真正的海景雙人房只有一間、評分 6.7）；綠島（浪浪別館不可退款，冬天船班也不穩）。</div></div>
+    <div class="callout tip" style="margin-top:8px"><div class="ic">i</div><div>選好就先訂一間可免費取消的卡位，之後想換再取消。價格和剩餘間數隨時在變。</div></div>
   </section>
 
   <section class="block" id="go">
-    <div class="sec-h"><h2>交通與搶票時程</h2><p>跨年東部火車票很難買，時間點比路線重要</p></div>
+    <div class="sec-h"><h2>搶票與取消期限</h2><p>跨年東部火車票很難買，時間點比路線重要</p></div>
     <div class="grid">
       <div class="card">
-        <h3>台北 ↔ 花蓮</h3>
+        <h3>台鐵怎麼搶</h3>
         <dl class="kv">
-          <dt>台鐵</dt><dd>太魯閣號、普悠瑪號、EMU3000 約 2 小時，全票 583 元。普悠瑪沒有站票</dd>
-          <dt>客運</dt><dd>首都客運（板橋—花蓮）、統聯或台北客運（南港—花蓮）走蘇花改，約 3.5 小時、約 320–352 元，全車對號座</dd>
-          <dt>當地</dt><dd>台灣好行 310（七星潭、將軍府、太魯閣）；租機車一天約 250–300 元；計程車建議用 App 或電話預約</dd>
+          <dt>規則</dt><dd>一般是乘車日前 28 天開賣，網路 00:00 開放</dd>
+          <dt>連假</dt><dd>連假期間的車票會併成同一天開賣。去年是 2025/12/1 00:00，跨年加開列車另外在 12/12 開賣</dd>
+          <dt>今年</dt><dd>今年跨年的疏運公告還沒發布，11 月起要盯台鐵官網和官方 FB</dd>
+          <dt>不用搶</dt><dd>九份、基隆班次很多；宜蘭可以搭葛瑪蘭客運；花蓮可以搭蘇花改客運</dd>
         </dl>
-        <p class="src" style="margin-top:12px">客運票價來自 2019–2020 年通車報導，訂票前以官網為準。</p>
       </div>
       <div class="card">
         <h3>關鍵日期</h3>
         <ol class="timeline">
-          <li><span class="when">11 月起</span><span class="what">每週看台鐵「疏運計畫」公告<span class="sub">今年跨年的公告還沒發布</span></span></li>
-          <li><span class="when">約 11 月底–12 月初</span><span class="what">台鐵連假車票開賣（預估）<span class="sub">去年是連假首日往前 28 天，2025/12/1 00:00 一次開賣，以今年公告為準</span></span></li>
-          <li><span class="when">12/16</span><span class="what">暗礁碼頭免費取消截止（不含當天）</span></li>
-          <li><span class="when">約 12 月中</span><span class="what">跨年加開列車另外開賣（預估）<span class="sub">去年是 12/12 開賣</span></span></li>
-          <li><span class="when">12/23</span><span class="what">亮君免費取消截止</span></li>
-          <li><span class="when">12/27</span><span class="what">洄瀾免費取消截止（不含當天）</span></li>
+          <li><span class="when">11 月起</span><span class="what">每週看台鐵疏運公告</span></li>
+          <li><span class="when">11/30</span><span class="what">覓夏旅店（墾丁）取消截止，不含當天</span></li>
+          <li><span class="when">約 11 月底–12 月初</span><span class="what">台鐵連假車票開賣（預估，去年是 12/1）</span></li>
+          <li><span class="when">約 12 月中</span><span class="what">跨年加開列車開賣（預估，去年是 12/12）</span></li>
+          <li><span class="when">12/16</span><span class="what">暗礁碼頭、允誠、張船長、砂點取消截止，不含當天</span></li>
+          <li><span class="when">12/23</span><span class="what">亮君、未央居、永旺取消截止（未央居、永旺不含當天）</span></li>
+          <li><span class="when">12/27</span><span class="what">洄瀾取消截止，不含當天</span></li>
         </ol>
       </div>
     </div>
   </section>
 
   <section class="block" id="plan">
-    <div class="sec-h"><h2>四天行程</h2><p>以住亮君（市區）、不騎車為前提</p></div>
+    <div class="sec-h"><h2>花蓮方案的四天行程</h2><p>以住亮君（市區）、不騎車為前提；選其他地區的話再另外排</p></div>
 
     <article class="day">
       <div class="day-info">
@@ -350,7 +390,7 @@
         <h3>出發前要再查</h3>
         <ul class="checklist">
           <li><span class="box"></span><span>台鐵跨年疏運公告和開賣日（11 月起）</span></li>
-          <li><span class="box"></span><span>花蓮縣觀光處的跨年晚會公告（11–12 月）</span></li>
+          <li><span class="box"></span><span>選定地區的跨年晚會公告（11–12 月），頁面上的地點都是去年的</span></li>
           <li><span class="box"></span><span>太魯閣國家公園的步道開放狀態（出發前一週）</span></li>
           <li><span class="box"></span><span>台灣好行 310 的冬季時刻表</span></li>
           <li><span class="box"></span><span>亮君含稅後的總價（下訂頁面會顯示）</span></li>
@@ -363,7 +403,9 @@
       </div>
       <div class="card">
         <h3>資料來源</h3>
-        <p class="src">住宿：Booking.com、Agoda，2026/9/29 以 2 大人、12/30–1/2 搜尋</p>
+        <p class="src">住宿：Booking.com、Agoda，2026/9/29–30 以 2 大人、12/30–1/2 搜尋，並逐間打開房頁確認取消規定</p>
+        <p class="src">各地區交通：<a href="https://timetables.tw/routes/7360/1000" target="_blank" rel="noopener">台北—瑞芳</a>、<a href="https://timetables.tw/routes/1000/0900" target="_blank" rel="noopener">台北—基隆</a>、<a href="https://kafu.tw/yilan-highway-bus/" target="_blank" rel="noopener">宜蘭客運</a>、<a href="https://roo.cash/blog/taiwanrailway-puyuma-article/" target="_blank" rel="noopener">普悠瑪票價</a></p>
+        <p class="src">跨年（都是去年的）：<a href="https://culture.taitung.gov.tw/activity/2026taitungparty" target="_blank" rel="noopener">台東</a>、<a href="https://keelunghihi.com.tw/90099" target="_blank" rel="noopener">基隆</a></p>
         <p class="src">台鐵：<a href="https://www.railway.gov.tw/tra-tip-web/tip/tip00C/tipC21/view?proCode=8ae4cac3756b7b41017572e5974c178b&subCode=8ae4cac28d0e8e3d018d131085d908fe&lang=zh_TW" target="_blank" rel="noopener">各假期開放訂票期程</a>（目前只有 2026 年版）、<a href="https://news.ltn.com.tw/news/life/breakingnews/5273832" target="_blank" rel="noopener">去年跨年加開列車</a></p>
         <p class="src">客運：<a href="https://www.capital-bus.com.tw/" target="_blank" rel="noopener">首都客運</a>、<a href="https://www.ubus.com.tw/" target="_blank" rel="noopener">統聯客運</a></p>
         <p class="src">跨年：<a href="https://td.hl.gov.tw/Detail_sp/df0a6ab71e6342e8b54e2b11196da1c2" target="_blank" rel="noopener">花蓮縣觀光處（去年）</a></p>
@@ -372,7 +414,7 @@
         <p class="src">天氣：<a href="https://tw.weatherspark.com/m/137164/12/" target="_blank" rel="noopener">Weather Spark 花蓮 12 月</a></p>
       </div>
     </div>
-    <p class="stamp">資料查詢日 2026/9/29。價格、剩餘間數和班次都會變，以訂票訂房當下為準。</p>
+    <p class="stamp">資料查詢日 2026/9/29–30。價格、剩餘間數和班次都會變，以訂票訂房當下為準。</p>
   </section>
 
 </div>
