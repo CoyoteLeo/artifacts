@@ -64,8 +64,11 @@
   .sec-h h2{font-family:var(--serif);font-size:22px;margin:0;flex:none}
   .sec-h p{margin:0;color:var(--muted);font-size:13.5px}
 
-  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
-  #decide .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+  .grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr);align-items:stretch}
+  @media (min-width:640px){ #decide .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  @media (min-width:1100px){ #decide .grid{grid-template-columns:repeat(4,minmax(0,1fr))} }
+  @media (min-width:800px){ #go .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  @media (min-width:1000px){ #todo .grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
   .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px}
   .card h3{font-family:var(--serif);font-size:17px;margin:0 0 4px;line-height:1.35}
   .q{font-size:11.5px;letter-spacing:.14em;font-weight:700;color:var(--faint);margin-bottom:6px}
@@ -132,13 +135,17 @@
   .r-info{background:var(--surface-2);padding:16px;border-bottom:1px solid var(--line)}
   .r-info h3{font-family:var(--serif);font-size:20px;margin:0 0 6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .r-info .kv{margin-top:8px}
-  .r-stays{padding:16px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));align-content:start}
-  .st{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface);font-size:13px;color:var(--muted)}
+  .r-stays{padding:16px;display:grid;gap:10px;grid-template-columns:minmax(0,1fr);align-content:start}
+  .st{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--surface);font-size:13px;color:var(--muted);
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline}
+  .st > .p{text-align:right}
+  .st > .row{justify-content:flex-end;margin-top:0}
+  .st > div:last-child{grid-column:1 / -1;margin-top:4px!important}
   .st.best{border-color:var(--sea)}
   .st .n{font-weight:700;color:var(--ink);font-size:14px}
   .st .p{font-family:var(--serif);font-weight:900;color:var(--ink);font-size:17px;font-variant-numeric:tabular-nums;margin:2px 0}
   .st .p small{font-family:var(--sans);font-weight:500;font-size:12px;color:var(--muted);margin-left:4px}
-  .st .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .st .row{display:flex;flex-wrap:wrap;gap:6px}
   .pill.no{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
   @media (min-width:980px){
     .region{grid-template-columns:380px minmax(0,1fr)}
@@ -152,6 +159,7 @@
   .stamp{font-size:11.5px;color:var(--faint);margin-top:24px}
   :focus-visible{outline:2px solid var(--sea);outline-offset:2px}
   @media (max-width:420px){ .timeline li{grid-template-columns:96px 1fr} .kv{grid-template-columns:64px 1fr} }
+  @media (max-width:520px){ .st{grid-template-columns:minmax(0,1fr)} .st > .p{text-align:left} .st > .row{justify-content:flex-start} }
 </style>
 
 <header class="topbar">
@@ -230,8 +238,8 @@
       </div>
       <div class="r-stays">
         <div class="st best"><div class="n">亮君海景民宿・市區</div><div class="p">NT$ 2,406<small>每晚・未稅</small></div><div>9.0（874 篇）</div><div class="row"><span class="pill ok">12/23 前免費取消</span></div><div style="margin-top:6px">Agoda。海景豪華雙人房含早，到店付款。加稅可能略超 2500；2,089 的房型不是海景，不要選錯</div></div>
-        <div class="st best"><div class="n">洄瀾國際文教會館・壽豐鹽寮</div><div class="p">NT$ 6,588<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill ok">12/27 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早，入住時付款、免填信用卡。一晚約 2,196</div></div>
-        <div class="st best"><div class="n">暗礁碼頭海景民宿・壽豐鹽寮</div><div class="p">NT$ 6,660<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。不含早，入住前付款，只剩 1 間。一晚約 2,220</div></div>
+        <div class="st"><div class="n">洄瀾國際文教會館・壽豐鹽寮</div><div class="p">NT$ 6,588<small>3 晚・含稅</small></div><div>8.5（387 則）</div><div class="row"><span class="pill ok">12/27 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早，入住時付款、免填信用卡。一晚約 2,196</div></div>
+        <div class="st"><div class="n">暗礁碼頭海景民宿・壽豐鹽寮</div><div class="p">NT$ 6,660<small>3 晚・含稅</small></div><div>9.0（178 則）</div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。不含早，入住前付款，只剩 1 間。一晚約 2,220</div></div>
       </div>
     </article>
     <article class="region">
@@ -241,8 +249,8 @@
       </div>
       <div class="r-stays">
         <div class="st best"><div class="n">未央居景觀民宿・九份輕便路</div><div class="p">NT$ 5,508<small>3 晚・含稅</small></div><div>8.3（346 則）</div><div class="row"><span class="pill ok">12/23 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房，早餐加購 85 元，入住時付款，還有 3 間。一晚約 1,836</div></div>
-        <div class="st best"><div class="n">允誠民宿・九份烏勢巷</div><div class="p">NT$ 6,354<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房含早，入住前付款，只剩 1 間。一晚約 2,118</div></div>
-        <div class="st best"><div class="n">九份山海觀民宿</div><div class="p">NT$ 7,560<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill no">超出預算</span></div><div style="margin-top:6px">Booking。一晚約 2,520，略超</div></div>
+        <div class="st"><div class="n">允誠民宿・九份烏勢巷</div><div class="p">NT$ 6,354<small>3 晚・含稅</small></div><div>8.7（428 則）</div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房含早，入住前付款，只剩 1 間。一晚約 2,118</div></div>
+        <div class="st"><div class="n">九份山海觀民宿</div><div class="p">NT$ 7,560<small>3 晚・含稅</small></div><div>8.4（124 則）</div><div class="row"><span class="pill no">超出預算</span></div><div style="margin-top:6px">Booking。一晚約 2,520，略超</div></div>
       </div>
     </article>
     <article class="region">
@@ -251,10 +259,10 @@
         <dl class="kv"><dt>從台北</dt><dd>高鐵到左營，轉墾丁快線約 140 分、401 元。全程粗估 4–4.5 小時，高鐵車程和票價要另外查</dd><dt>當地</dt><dd>恆春轉運站旁可以租機車，基本上要騎</dd><dt>跨年</dt><dd>墾丁本地沒有查到官方活動；屏東的晚會在屏東市和大鵬灣，離墾丁有段車程，今年日期未確認</dd><dt>日出</dt><dd>龍磐公園、鵝鑾鼻</dd><dt>冬天</dt><dd>最暖，但恆春冬天落山風很強</dd></dl>
       </div>
       <div class="r-stays">
-        <div class="st best"><div class="n">張船長民宿・鵝鑾</div><div class="p">NT$ 6,840<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景豪華雙人房有陽台，入住前付款，只剩 1 間</div></div>
-        <div class="st best"><div class="n">砂點民宿・鵝鑾</div><div class="p">NT$ 7,240<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住時付款、無需訂金，還有 2 間</div></div>
-        <div class="st best"><div class="n">永旺旅店・南灣</div><div class="p">NT$ 7,470<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill ok">12/23 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住前付款，只剩 1 間。一晚約 2,490</div></div>
-        <div class="st best"><div class="n">覓夏旅店・南灣</div><div class="p">NT$ 7,600<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill warn">11/30 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早方案才能取消，一晚約 2,533，略超預算</div></div>
+        <div class="st"><div class="n">張船長民宿・鵝鑾</div><div class="p">NT$ 6,840<small>3 晚・含稅</small></div><div>9.0（19 則）</div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景豪華雙人房有陽台，入住前付款，只剩 1 間</div></div>
+        <div class="st"><div class="n">砂點民宿・鵝鑾</div><div class="p">NT$ 7,240<small>3 晚・含稅</small></div><div>8.9（104 則）</div><div class="row"><span class="pill warn">12/16 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住時付款、無需訂金，還有 2 間</div></div>
+        <div class="st"><div class="n">永旺旅店・南灣</div><div class="p">NT$ 7,470<small>3 晚・含稅</small></div><div>9.6（73 則）</div><div class="row"><span class="pill ok">12/23 前（不含當天）</span></div><div style="margin-top:6px">Booking。海景雙人房有陽台，入住前付款，只剩 1 間。一晚約 2,490</div></div>
+        <div class="st"><div class="n">覓夏旅店・南灣</div><div class="p">NT$ 7,600<small>3 晚・含稅</small></div><div>9.1（143 則）</div><div class="row"><span class="pill warn">11/30 前（不含當天）</span></div><div style="margin-top:6px">Booking。含早方案才能取消，一晚約 2,533，略超預算</div></div>
       </div>
     </article>
     <article class="region out">
@@ -263,8 +271,8 @@
         <dl class="kv"><dt>從台北</dt><dd>普悠瑪、太魯閣號約 3 小時 50 分–4 小時 26 分，全票 936 元，全車對號座，要搶票</dd><dt>當地</dt><dd>東河、成功一帶公車班次少，要租機車</dd><dt>跨年</dt><dd>台東市國際地標，去年張惠妹壓軸。今年未公告</dd><dt>日出</dt><dd>三仙台（台灣好行 8101A 可以到）</dd><dt>冬天</dt><dd>東北季風背風面，比北部穩定</dd></dl>
       </div>
       <div class="r-stays">
-        <div class="st best"><div class="n">三仙台小月光民宿・成功</div><div class="p">NT$ 4,900<small>3 晚・含稅</small></div><div></div><div class="row"><span class="pill no">不可退款</span></div><div style="margin-top:6px">Booking。含早、就在元旦日出點，但不能取消</div></div>
-        <div class="st best"><div class="n">海岸線獨立海景房寵物友善民宿・東河</div><div class="p">NT$ 2,418<small>每晚・未稅</small></div><div></div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。只有 4 篇評鑑，參考價值低；取消截止日沒有點進去確認</div></div>
+        <div class="st"><div class="n">三仙台小月光民宿・成功</div><div class="p">NT$ 4,900<small>3 晚・含稅</small></div><div>8.5（185 則）</div><div class="row"><span class="pill no">不可退款</span></div><div style="margin-top:6px">Booking。含早、就在元旦日出點，但不能取消</div></div>
+        <div class="st"><div class="n">海岸線獨立海景房寵物友善民宿・東河</div><div class="p">NT$ 2,418<small>每晚・未稅</small></div><div>9.1（4 篇）</div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。只有 4 篇評鑑，參考價值低；取消截止日沒有點進去確認</div></div>
       </div>
     </article>
     <article class="region out">
@@ -273,7 +281,7 @@
         <dl class="kv"><dt>從台北</dt><dd>台鐵最快約 1 小時 42 分、169 元起（外澳是無人招呼站）；葛瑪蘭客運 105–180 元，可以線上訂位</dd><dt>當地</dt><dd>頭城站前有 24 小時機車租借，基本上要騎</dd><dt>跨年</dt><dd>宜蘭市運動公園有晚會（去年的資料），離頭城有車程</dd><dt>日出</dt><dd>外澳沙灘、烏石港北堤，可以跟龜山島同框</dd><dt>冬天</dt><dd>東北季風迎風面，常下雨</dd></dl>
       </div>
       <div class="r-stays">
-        <div class="st best"><div class="n">望島間－無邊際泳池海景溫泉宅</div><div class="p">NT$ 4,113<small>每晚・未稅</small></div><div></div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。符合條件裡最便宜的，還是超過預算很多</div></div>
+        <div class="st"><div class="n">望島間－無邊際泳池海景溫泉宅</div><div class="p">NT$ 4,113<small>每晚・未稅</small></div><div>8.6（1,514 篇）</div><div class="row"><span class="pill ok">可免費取消</span></div><div style="margin-top:6px">Agoda。符合條件裡最便宜的，還是超過預算很多</div></div>
         <div class="st"><div class="n">Booking</div><div class="p">0 間<small></small></div><div></div><div class="row"><span class="pill no">沒有符合的</span></div><div style="margin-top:6px">海景房、每晚 2500 內的條件下 Booking 一間都沒有</div></div>
       </div>
     </article>
