@@ -22,4 +22,4 @@ This repo and its Pages site are public: keep personal details (home address, ph
 ## Pages
 
 - `taichung-trip` — 台中深度三日 · artifact: https://claude.ai/artifact/TYb1adFWGLGuiT2RyzGsdk
-- `nye-2027` — 跨年海景四日 · artifact: https://claude.ai/artifact/XQjMv53GnFC9aB15DRijVc
+- `nye-2027` — 花蓮跨年四日 · artifact: https://claude.ai/artifact/XQjMv53GnFC9aB15DRijVc
